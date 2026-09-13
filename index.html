@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Bajwa – گھر کا سودا سستا | Online Grocery Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --green:#0d5c3f;--green-dark:#07402b;--gold:#d4af37;--gold-light:#f5d76e;
+  --red:#c62828;--cream:#fdf8ee;--text:#2b2b2b;--muted:#6b6b6b;
+  --shadow:0 6px 24px rgba(0,0,0,.13);--shadow-lg:0 14px 45px rgba(0,0,0,.22);
+  --radius:14px;--tr:all .3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden}
+.urdu{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;line-height:2.1}
+
+/* PRELOADER */
+#preloader{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--green-dark);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .5s,visibility .5s}
+#preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-box{text-align:center;color:#fff}
+.loader-box .bag{font-size:70px;animation:bob 1s ease-in-out infinite alternate}
+.loader-box p{font-family:'Noto Nastaliq Urdu',serif;font-size:1.3rem;margin-top:10px;color:var(--gold-light)}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+
+/* TOPBAR */
+.topbar{background:var(--green-dark);color:var(--gold-light);text-align:center;padding:6px 15px;font-size:.8rem}
+.topbar i{color:var(--gold);margin-right:4px}
+.topbar a{color:var(--gold-light);text-decoration:none}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:1000;background:var(--green);box-shadow:var(--shadow);border-bottom:3px solid var(--gold)}
+.nav-wrap{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.logo .ic{font-size:36px;animation:bob 3s ease-in-out infinite alternate}
+.logo .nm{font-family:'Dancing Script',cursive;font-size:1.9rem;font-weight:700;line-height:1;text-shadow:2px 2px 0 #a8841a;display:block}
+.logo .tg{font-size:.6rem;letter-spacing:2px;color:var(--gold-light);text-transform:uppercase}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.nav-links a{color:#e8f5e9;text-decoration:none;padding:8px 14px;border-radius:20px;font-size:.85rem;font-weight:500;transition:var(--tr)}
+.nav-links a:hover,.nav-links a.active{background:var(--gold);color:var(--green-dark)}
+.nav-act{display:flex;gap:8px;align-items:center}
+.icon-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.05rem;position:relative;transition:var(--tr);text-decoration:none;padding:0}
+.icon-btn:hover{background:var(--gold);color:var(--green-dark);transform:scale(1.08)}
+.icon-btn.wa:hover{background:#25D366;color:#fff}
+.icon-btn.mail:hover{background:var(--red);color:#fff}
+.badge-cart{position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;font-size:.65rem;font-weight:700;min-width:19px;height:19px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--green),var(--green-dark) 55%,#04241a);padding:60px 20px 70px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 15% 20%,rgba(212,175,55,.22),transparent 40%),radial-gradient(circle at 85% 80%,rgba(212,175,55,.18),transparent 40%);pointer-events:none}
+.deco{position:absolute;font-size:3rem;opacity:.14;animation:float 8s ease-in-out infinite}
+.d1{top:12%;left:6%}.d2{bottom:10%;right:6%;animation-delay:2s}
+.d3{top:55%;left:88%;animation-delay:4s;font-size:2.3rem}.d4{bottom:30%;left:12%;animation-delay:1s;font-size:2.6rem}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(8deg)}}
+.hero-in{position:relative;z-index:2;max-width:800px;margin:0 auto}
+.hero h1{font-family:'Noto Nastaliq Urdu',serif;font-size:3.3rem;line-height:1.6;color:var(--gold-light);text-shadow:3px 3px 0 rgba(0,0,0,.35)}
+.hero h2{font-family:'Dancing Script',cursive;font-size:2rem;color:#fff;margin-top:6px}
+.hero p{font-size:1rem;margin-top:14px;color:#d7ecdf}
+.hero-btns{margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:30px;font-weight:600;font-size:.9rem;border:none;cursor:pointer;text-decoration:none;font-family:inherit;transition:var(--tr);letter-spacing:.3px;justify-content:center}
+.btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+.btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--green-dark);box-shadow:0 6px 22px rgba(212,175,55,.4)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(212,175,55,.55)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-green{background:var(--green);color:#fff;box-shadow:0 6px 20px rgba(13,92,63,.35)}
+.btn-green:hover{background:var(--green-dark);transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#9b1e1e}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 6px 20px rgba(37,211,102,.35)}
+.btn-wa:hover{background:#1da851;transform:translateY(-2px)}
+.btn-mail{background:#d93025;color:#fff;box-shadow:0 6px 20px rgba(217,48,37,.35)}
+.btn-mail:hover{background:#b3261e;transform:translateY(-2px)}
+.btn-sm{padding:8px 16px;font-size:.8rem}
+.btn-xs{padding:5px 11px;font-size:.72rem;border-radius:20px}
+.btn-block{width:100%;justify-content:center}
+
+/* SECTION */
+.section{padding:50px 20px;max-width:1300px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:35px}
+.sec-head h2{font-size:2rem;font-weight:800;color:var(--green-dark);display:inline-block;position:relative}
+.sec-head h2::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:70px;height:4px;background:linear-gradient(90deg,var(--gold),#a8841a);border-radius:2px}
+.sec-head .sub{color:var(--muted);font-size:.9rem;margin-top:16px}
+.sec-head .urdu-sub{font-family:'Noto Nastaliq Urdu',serif;color:var(--muted);font-size:1rem;margin-top:8px}
+
+/* CATEGORY */
+.cat-bar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.cat-btn{padding:9px 22px;border-radius:30px;border:2px solid var(--green);background:transparent;color:var(--green);font-weight:600;font-size:.85rem;cursor:pointer;transition:var(--tr);font-family:inherit;display:inline-flex;align-items:center;gap:6px}
+.cat-btn:hover,.cat-btn.active{background:var(--green);color:#fff;box-shadow:0 6px 20px rgba(13,92,63,.3)}
+
+/* PRODUCTS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:var(--tr);cursor:pointer;border:2px solid transparent;display:flex;flex-direction:column;position:relative}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--gold)}
+.card .img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#e8f5e9,#fff8e1);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.card .img .fallback{font-size:4.5rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg,#e8f5e9,#fff8e1)}
+.card .tag{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-size:.65rem;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.4px;text-transform:uppercase;box-shadow:0 3px 10px rgba(198,40,40,.4)}
+.card .tag.gold{background:var(--gold);color:var(--green-dark)}
+.card .body{padding:14px 15px 16px;display:flex;flex-direction:column;flex-grow:1}
+.card .name-en{font-weight:700;font-size:1rem;color:var(--green-dark);line-height:1.35}
+.card .name-ur{font-family:'Noto Nastaliq Urdu',serif;font-size:1.05rem;color:var(--text);line-height:2;margin-top:2px;direction:rtl}
+.card .prow{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px dashed #e0d8b8}
+.card .price{font-size:1.35rem;font-weight:800;color:var(--green)}
+.card .price .rs{font-size:.75rem;font-weight:600;color:var(--muted);margin-right:3px}
+.card .add{background:var(--gold);color:var(--green-dark);border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;transition:var(--tr);box-shadow:0 4px 12px rgba(212,175,55,.5)}
+.card .add:hover{background:var(--green);color:#fff;transform:scale(1.1) rotate(90deg)}
+
+/* CART SIDEBAR */
+.cart{position:fixed;top:0;right:-430px;width:100%;max-width:420px;height:100%;background:#fff;z-index:10002;box-shadow:-8px 0 40px rgba(0,0,0,.25);transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.cart.open{right:0}
+.cart-h{background:var(--green);color:#fff;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--gold)}
+.cart-h h3{font-size:1.15rem;display:flex;align-items:center;gap:8px}
+.cart-h .x{background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;transition:var(--tr)}
+.cart-h .x:hover{color:var(--gold-light);transform:rotate(90deg)}
+.cart-list{flex:1;overflow-y:auto;padding:14px 16px}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.cart-empty .ic{font-size:4rem;opacity:.35;margin-bottom:14px}
+.cart-empty .ur{font-family:'Noto Nastaliq Urdu',serif;font-size:1.2rem;color:var(--green);margin-top:4px}
+.c-item{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px dashed #e6e6e6}
+.c-item .th{width:58px;height:58px;border-radius:10px;background:linear-gradient(135deg,#e8f5e9,#fff8e1);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0}
+.c-item .inf{flex:1;min-width:0}
+.c-item .inf .nm{font-weight:600;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-item .inf .pr{color:var(--green);font-weight:700;font-size:.85rem}
+.qty{display:flex;align-items:center;gap:6px;background:#f4ead3;border-radius:20px;padding:3px}
+.qty button{width:26px;height:26px;border-radius:50%;border:none;background:#fff;color:var(--green);font-weight:700;cursor:pointer;font-size:.9rem;box-shadow:0 2px 6px rgba(0,0,0,.08);transition:var(--tr)}
+.qty button:hover{background:var(--green);color:#fff}
+.qty .n{min-width:22px;text-align:center;font-weight:700;font-size:.85rem}
+.c-item .del{background:none;border:none;color:var(--red);cursor:pointer;font-size:.95rem;padding:4px}
+.cart-f{padding:16px 18px 20px;background:#f4ead3;border-top:2px solid var(--gold)}
+.crow{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px;color:var(--muted)}
+.crow.total{font-size:1.15rem;font-weight:800;color:var(--green-dark);margin:10px 0 14px;padding-top:10px;border-top:2px dashed #d4c4a0}
+.cart-f-btns{display:flex;flex-direction:column;gap:8px}
+
+/* OVERLAY */
+.ovl{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);z-index:10001;opacity:0;visibility:hidden;transition:var(--tr);backdrop-filter:blur(3px)}
+.ovl.show{opacity:1;visibility:visible}
+
+/* MODAL */
+.mo{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.65);z-index:10010;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:var(--tr);backdrop-filter:blur(4px)}
+.mo.on{opacity:1;visibility:visible}
+.mdl{background:#fff;border-radius:var(--radius);padding:28px 26px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(30px) scale(.97);transition:var(--tr);box-shadow:var(--shadow-lg);border-top:5px solid var(--gold)}
+.mo.on .mdl{transform:translateY(0) scale(1)}
+.mdl .x{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--muted);transition:var(--tr);line-height:1}
+.mdl .x:hover{color:var(--red);transform:rotate(90deg)}
+.mdl h3{font-size:1.35rem;color:var(--green-dark);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.mdl .ur-t{font-family:'Noto Nastaliq Urdu',serif;color:var(--green);font-size:1.15rem;margin-bottom:18px;direction:rtl}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-weight:600;font-size:.83rem;color:var(--green-dark);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;border:2px solid #e0dcc8;border-radius:8px;font-size:.92rem;font-family:inherit;background:#fdfcf7;transition:var(--tr);color:var(--text)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--gold);background:#fff;box-shadow:0 0 0 4px rgba(212,175,55,.15)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* ORDER PREVIEW */
+.oprev{background:linear-gradient(135deg,#fdf8ee,#f4ead3);border-radius:8px;padding:14px 16px;margin-bottom:18px;border-left:4px solid var(--gold);max-height:180px;overflow-y:auto}
+.oprev .r{display:flex;justify-content:space-between;font-size:.87rem;padding:4px 0}
+.oprev .r.total{font-weight:800;color:var(--green-dark);border-top:1px dashed #c9b98a;margin-top:8px;padding-top:8px;font-size:1rem}
+.order-btns{display:flex;flex-direction:column;gap:9px;margin-top:8px}
+
+/* TOAST */
+.tw{position:fixed;top:80px;right:20px;z-index:99999;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.tst{background:var(--green-dark);color:#fff;padding:13px 20px;border-radius:10px;font-size:.88rem;font-weight:500;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:10px;animation:tin .35s ease;pointer-events:auto;border-left:4px solid var(--gold);max-width:340px}
+.tst.error{background:var(--red);border-left-color:#ffcdd2}
+.tst.info{background:#1565c0;border-left-color:#90caf9}
+@keyframes tin{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes tout{from{transform:translateX(0);opacity:1}to{transform:translateX(120%);opacity:0}}
+
+/* ADMIN */
+.ap{position:fixed;top:0;right:-100%;width:100%;max-width:560px;height:100%;background:#fbfaf6;z-index:10020;transition:right .4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-10px 0 50px rgba(0,0,0,.3)}
+.ap.open{right:0}
+.ap-h{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:4px solid var(--gold)}
+.ap-h h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.ap-h .x{background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer}
+.ap-h .x:hover{color:var(--gold-light)}
+.ap-tabs{display:flex;background:#f4ead3;border-bottom:2px solid #e0d8b8;overflow-x:auto}
+.ap-tab{flex:1;padding:12px 14px;background:none;border:none;font-weight:600;font-size:.82rem;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;transition:var(--tr);font-family:inherit;white-space:nowrap}
+.ap-tab.active{color:var(--green-dark);border-bottom-color:var(--gold);background:#fff}
+.ap-body{flex:1;overflow-y:auto;padding:20px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:22px}
+.stat{background:#fff;padding:16px;border-radius:8px;border-left:4px solid var(--green);box-shadow:0 2px 8px rgba(0,0,0,.08);text-align:center}
+.stat .n{font-size:1.8rem;font-weight:800;color:var(--green-dark);line-height:1}
+.stat .l{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-top:6px}
+.stat.gold{border-left-color:var(--gold)}.stat.gold .n{color:#a8841a}
+.stat.red{border-left-color:var(--red)}.stat.red .n{color:var(--red)}
+.blk{background:#fff;border-radius:8px;padding:18px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #eee}
+.blk h4{font-size:.95rem;color:var(--green-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:1px dashed #e0d8b8}
+.blk h4 i{color:#a8841a}
+.afg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.afg .full{grid-column:1/-1}
+.ord-list{display:flex;flex-direction:column;gap:12px}
+.oc{background:#fff;border-radius:8px;padding:14px 15px;border-left:4px solid var(--gold);box-shadow:0 2px 8px rgba(0,0,0,.08);font-size:.83rem}
+.oc.completed{border-left-color:var(--green);opacity:.72}
+.oc .oh{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.oc .oid{font-weight:700;color:var(--green-dark);font-size:.78rem}
+.oc .ost{font-size:.68rem;padding:3px 9px;border-radius:20px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.oc .ost.new{background:#ffebee;color:var(--red)}
+.oc .ost.done{background:#e8f5e9;color:var(--green)}
+.oc .ob{color:#555;line-height:1.75}
+.oc .ob strong{color:var(--green-dark)}
+.oc .oi{background:var(--cream);padding:8px 10px;border-radius:6px;font-size:.78rem;margin:8px 0}
+.oc .oa{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.pml{display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto;padding-right:5px}
+.pmi{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #eee}
+.pmi .em{font-size:1.5rem;width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--cream);border-radius:8px;flex-shrink:0}
+.pmi .inf{flex:1;min-width:0}
+.pmi .inf .t{font-weight:600;font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pmi .inf .s{font-size:.72rem;color:var(--muted)}
+.pmi .pr{font-weight:700;color:var(--green);font-size:.88rem;white-space:nowrap}
+.pmi .act{display:flex;gap:4px}
+.pmi .act button{width:30px;height:30px;border:none;border-radius:6px;cursor:pointer;font-size:.8rem;transition:var(--tr)}
+.be{background:#e3f2fd;color:#1565c0}.be:hover{background:#1565c0;color:#fff}
+.bd{background:#ffebee;color:var(--red)}.bd:hover{background:var(--red);color:#fff}
+
+/* INFO CARDS */
+.igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.icard{background:#fff;padding:26px 22px;border-radius:var(--radius);text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08);border-top:4px solid var(--gold);transition:var(--tr)}
+.icard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.icard .i{font-size:2.4rem;color:var(--green);margin-bottom:12px}
+.icard.wa .i{color:#25D366}
+.icard.mail .i{color:var(--red)}
+.icard h4{font-size:1rem;color:var(--green-dark);margin-bottom:8px}
+.icard p{font-size:.88rem;color:var(--muted);line-height:1.7}
+.icard a{color:var(--green);font-weight:600;text-decoration:none;transition:var(--tr)}
+.icard.wa a{color:#25D366}
+.icard.mail a{color:var(--red)}
+.icard a:hover{text-decoration:underline}
+.icard .big-btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 22px;border-radius:26px;font-weight:600;font-size:.85rem;text-decoration:none;color:#fff;transition:var(--tr)}
+.icard .big-btn.wa{background:#25D366}
+.icard .big-btn.wa:hover{background:#1da851;transform:translateY(-2px)}
+.icard .big-btn.mail{background:#d93025}
+.icard .big-btn.mail:hover{background:#b3261e;transform:translateY(-2px)}
+
+/* FOOTER */
+.ftr{background:var(--green-dark);color:#cfe8d8;padding:40px 20px 20px;margin-top:40px;border-top:5px solid var(--gold);text-align:center}
+.ftr .fl{font-family:'Dancing Script',cursive;font-size:2rem;color:#fff;margin-bottom:6px}
+.ftr .fu{font-family:'Noto Nastaliq Urdu',serif;font-size:1.1rem;color:var(--gold-light);margin-bottom:16px}
+.ftr .fi{display:flex;gap:14px;justify-content:center;margin:16px 0}
+.ftr .fi a{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.15rem;transition:var(--tr);border:1px solid rgba(212,175,55,.35)}
+.ftr .fi a:hover{background:var(--gold);color:var(--green-dark);transform:translateY(-4px)}
+.ftr .fi a.wa:hover{background:#25D366;color:#fff}
+.ftr .fi a.mail:hover{background:var(--red);color:#fff}
+.ftr .cp{font-size:.75rem;color:#8fbca3;margin-top:12px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)}
+
+/* FLOATING */
+.fadm{position:fixed;bottom:22px;right:22px;z-index:9999;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;border:3px solid var(--gold);cursor:pointer;font-size:1.25rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);transition:var(--tr)}
+.fadm:hover{transform:scale(1.1) rotate(15deg)}
+.fcart{position:fixed;bottom:22px;left:22px;z-index:9999;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--green-dark);border:3px solid #fff;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);transition:var(--tr)}
+.fcart:hover{transform:scale(1.1)}
+.fcart .fbadge{position:absolute;top:-6px;right:-6px;background:var(--red);color:#fff;font-size:.68rem;font-weight:700;min-width:22px;height:22px;border-radius:11px;display:flex;align-items:center;justify-content:center;padding:0 4px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none;width:100%;flex-direction:column;padding:12px 0}
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;text-align:center}
+  .hamburger{display:block}
+}
+@media(max-width:640px){
+  .hero h1{font-size:2.1rem}.hero h2{font-size:1.5rem}
+  .section{padding:34px 14px}.sec-head h2{font-size:1.55rem}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  .card .name-en{font-size:.88rem}.card .name-ur{font-size:.95rem}
+  .card .price{font-size:1.1rem}.card .add{width:34px;height:34px;font-size:.9rem}
+  .cart{max-width:100%}.ap{max-width:100%}
+  .mdl{padding:22px 18px}.frow{grid-template-columns:1fr}.afg{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .logo .nm{font-size:1.5rem}.topbar{font-size:.7rem}
+  .fcart{bottom:18px;left:18px;width:50px;height:50px}
+  .fadm{bottom:18px;right:18px;width:48px;height:48px;font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="loader-box">
+    <div class="bag">🛍️</div>
+    <p>مستر باجوہ</p>
+  </div>
+</div>
+
+<div class="topbar">
+  <i class="fas fa-truck"></i> ڈیلیوری چوہدری وال، گکھڑ منڈی &nbsp;|&nbsp;
+  <i class="fas fa-phone"></i> <a href="tel:03416142690">0341-6142690</a>
+</div>
+
+<nav class="navbar">
+  <div class="nav-wrap">
+    <a href="#home" class="logo">
+      <span class="ic">🛍️</span>
+      <span>
+        <span class="nm">Mr. Bajwa</span>
+        <span class="tg">Grocery Store</span>
+      </span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#products">سودا سلف</a>
+      <a href="#about">ہمارے بارے میں</a>
+      <a href="#contact">رابطہ</a>
+    </div>
+    <div class="nav-act">
+      <button class="icon-btn wa" onclick="openWhatsAppDirect()" title="WhatsApp" type="button">
+        <i class="fab fa-whatsapp"></i>
+      </button>
+      <button class="icon-btn mail" onclick="openEmailDirect()" title="Email" type="button">
+        <i class="fas fa-envelope"></i>
+      </button>
+      <button class="icon-btn" onclick="openCart()" title="Cart" type="button">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="badge-cart" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" type="button" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <span class="deco d1">🌾</span>
+  <span class="deco d2">🧴</span>
+  <span class="deco d3">🥣</span>
+  <span class="deco d4">🛒</span>
+  <div class="hero-in">
+    <h1>مستر باجوہ</h1>
+    <h2>Mr. Bajwa Grocery Store</h2>
+    <p>✅ گھر کا سودا سستے داموں &nbsp; ✅ فری ہوم ڈیلیوری &nbsp; ✅ تازہ راشن</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn btn-gold"><i class="fas fa-shopping-bag"></i> سودا دیکھیں</a>
+      <a href="tel:03416142690" class="btn btn-outline"><i class="fas fa-phone"></i> ابھی کال کریں</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="sec-head">
+    <h2>🛒 سودا سلف</h2>
+    <p class="sub">All items at wholesale rates</p>
+    <p class="urdu-sub">اپنی پسند کی چیز پر کلک کریں اور آرڈر کریں</p>
+  </div>
+  <div class="cat-bar" id="catBar">
+    <button class="cat-btn active" data-cat="all" type="button">🛍️ تمام &nbsp; All</button>
+    <button class="cat-btn" data-cat="ghar" type="button">🧴 گھر کی چیزیں</button>
+    <button class="cat-btn" data-cat="rashan" type="button">🌾 راشن</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="section" id="about">
+  <div class="sec-head">
+    <h2>کیوں مستر باجوہ؟</h2>
+    <p class="sub">Why Choose Us?</p>
+  </div>
+  <div class="igrid">
+    <div class="icard"><div class="i"><i class="fas fa-tags"></i></div><h4>سستے دام</h4><p>منڈی کے ریٹ پر سامان، کوئی کمیشن نہیں۔</p></div>
+    <div class="icard"><div class="i"><i class="fas fa-truck"></i></div><h4>فری ڈیلیوری</h4><p>چوہدری وال، گکھڑ منڈی اور گرد و نواح میں۔</p></div>
+    <div class="icard"><div class="i"><i class="fas fa-check-circle"></i></div><h4>تازہ سامان</h4><p>تمام راشن اور گھریلو سامان اوریجنل کمپنی کا۔</p></div>
+    <div class="icard"><div class="i"><i class="fas fa-clock"></i></div><h4>تیز سروس</h4><p>آرڈر کے بعد 30 منٹ میں ڈیلیوری۔</p></div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="sec-head">
+    <h2>رابطہ کریں</h2>
+    <p class="sub">Get in Touch</p>
+  </div>
+  <div class="igrid">
+    <div class="icard">
+      <div class="i"><i class="fas fa-phone-alt"></i></div>
+      <h4>فون</h4>
+      <p><a href="tel:03416142690">0341-6142690</a></p>
+    </div>
+    <div class="icard wa">
+      <div class="i"><i class="fab fa-whatsapp"></i></div>
+      <h4>واٹس ایپ</h4>
+      <p>فوری رابطہ</p>
+      <button type="button" class="big-btn wa" onclick="openWhatsAppDirect()">
+        <i class="fab fa-whatsapp"></i> چیٹ کھولیں
+      </button>
+    </div>
+    <div class="icard mail">
+      <div class="i"><i class="fas fa-envelope"></i></div>
+      <h4>ای میل</h4>
+      <p>faseelhaiderbajwa@gmail.com</p>
+      <button type="button" class="big-btn mail" onclick="openEmailDirect()">
+        <i class="fas fa-envelope"></i> ای میل بھیجیں
+      </button>
+    </div>
+    <div class="icard">
+      <div class="i"><i class="fas fa-map-marker-alt"></i></div>
+      <h4>لوکیشن</h4>
+      <p>چوہدری وال، گکھڑ منڈی</p>
+    </div>
+  </div>
+</section>
+
+<!-- CART -->
+<div class="cart" id="cartPanel">
+  <div class="cart-h">
+    <h3><i class="fas fa-shopping-basket"></i> آپ کا سودا</h3>
+    <button class="x" onclick="closeCart()" type="button" aria-label="Close">✕</button>
+  </div>
+  <div class="cart-list" id="cartList"></div>
+  <div class="cart-f" id="cartFooter">
+    <div class="crow"><span>کل آئٹمز</span><span id="cartItems">0</span></div>
+    <div class="crow total"><span>کل رقم</span><span>Rs. <span id="cartTotal">0</span></span></div>
+    <div class="cart-f-btns">
+      <button class="btn btn-green btn-block" id="placeOrderBtn" onclick="openOrderModal()" type="button">
+        <i class="fas fa-check-circle"></i> آرڈر کی تصدیق کریں
+      </button>
+      <button class="btn btn-wa btn-block" onclick="sendCartViaWhatsApp()" type="button">
+        <i class="fab fa-whatsapp"></i> واٹس ایپ پر آرڈر بھیجیں
+      </button>
+      <button class="btn btn-mail btn-block" onclick="sendCartViaEmail()" type="button">
+        <i class="fas fa-envelope"></i> ای میل پر آرڈر بھیجیں
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="ovl" id="ovl" onclick="closeAll()"></div>
+
+<!-- ORDER MODAL -->
+<div class="mo" id="orderModal">
+  <div class="mdl">
+    <button class="x" onclick="closeOrderModal()" type="button" aria-label="Close">✕</button>
+    <h3><i class="fas fa-clipboard-list"></i> آرڈر کی تفصیلات</h3>
+    <p class="ur-t">براہِ کرم اپنی معلومات درج کریں</p>
+    <div class="oprev" id="orderPreview"></div>
+    <form id="orderForm" onsubmit="event.preventDefault();">
+      <div class="fg"><label>👤 پورا نام / Full Name *</label><input type="text" id="cName" required autocomplete="name"></div>
+      <div class="fg"><label>📞 موبائل نمبر / Phone *</label><input type="tel" id="cPhone" required pattern="[0-9+\-\s]{10,15}" placeholder="03XX-XXXXXXX" autocomplete="tel"></div>
+      <div class="frow">
+        <div class="fg"><label>🏙️ شہر / City *</label><input type="text" id="cCity" required></div>
+        <div class="fg"><label>🏛️ ضلع / District *</label><input type="text" id="cDist" required></div>
+      </div>
+      <div class="fg"><label>📍 تحصیل / Tehsil *</label><input type="text" id="cTeh" required></div>
+      <div class="fg"><label>🏠 مکمل پتہ / Address</label><textarea id="cAddr" rows="2"></textarea></div>
+    </form>
+    <div class="order-btns">
+      <button type="button" class="btn btn-wa btn-block" onclick="placeOrderViaWhatsApp()">
+        <i class="fab fa-whatsapp"></i> واٹس ایپ پر آرڈر بھیجیں
+      </button>
+      <button type="button" class="btn btn-mail btn-block" onclick="placeOrderViaEmail()">
+        <i class="fas fa-envelope"></i> ای میل پر آرڈر بھیجیں
+      </button>
+      <button type="button" class="btn btn-outline" onclick="closeOrderModal()" style="color:var(--muted);border-color:#ccc">
+        منسوخ کریں
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div class="mo" id="adminLoginModal">
+  <div class="mdl" style="max-width:420px;text-align:center">
+    <button class="x" onclick="closeAdminLogin()" type="button" aria-label="Close">✕</button>
+    <div style="font-size:3rem;color:var(--gold);margin-bottom:10px"><i class="fas fa-lock"></i></div>
+    <h3 style="justify-content:center">Admin Login</h3>
+    <p class="ur-t">صرف منتظم کے لیے</p>
+    <form onsubmit="handleAdminLogin(event)">
+      <div class="fg"><label>📧 Email</label><input type="email" id="aEmail" required></div>
+      <div class="fg"><label>🔑 Password</label><input type="password" id="aPass" required></div>
+      <button type="submit" class="btn btn-green btn-block">
+        <i class="fas fa-sign-in-alt"></i> لاگ ان
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="ap" id="adminPanel">
+  <div class="ap-h">
+    <h3><i class="fas fa-user-shield"></i> Admin Dashboard</h3>
+    <button class="x" onclick="closeAdminPanel()" type="button" aria-label="Close">✕</button>
+  </div>
+  <div class="ap-tabs">
+    <button class="ap-tab active" data-tab="orders" type="button">📦 Orders</button>
+    <button class="ap-tab" data-tab="products" type="button">🛒 Products</button>
+    <button class="ap-tab" data-tab="add" type="button">➕ Add Product</button>
+  </div>
+  <div class="ap-body" id="adminBody"></div>
+</div>
+
+<button class="fcart" onclick="openCart()" title="Cart" type="button" aria-label="Cart">
+  <i class="fas fa-shopping-basket"></i>
+  <span class="fbadge" id="floatCartCount">0</span>
+</button>
+
+<button class="fadm" onclick="openAdminPanelClick()" title="Admin Panel" type="button" aria-label="Admin">
+  <i class="fas fa-user-cog"></i>
+</button>
+
+<div class="tw" id="toastWrap"></div>
+
+<footer class="ftr">
+  <div class="fl">Mr. Bajwa</div>
+  <div class="fu">مستر باجوہ – گھر کا سودا سستا</div>
+  <p>چوہدری وال، گکھڑ منڈی | فون: <a href="tel:03416142690" style="color:var(--gold-light);text-decoration:none;">0341-6142690</a></p>
+  <div class="fi">
+    <a href="tel:03416142690" title="Call"><i class="fas fa-phone"></i></a>
+    <a href="#" onclick="openWhatsAppDirect();return false;" class="wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" onclick="openEmailDirect();return false;" class="mail" title="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+  <div class="cp">© 2026 Mr. Bajwa Grocery Store. All rights reserved.</div>
+</footer>
+
+<script>
+/* ============================================
+   CONFIG
+============================================ */
+var ADMIN_EMAIL = 'faseelhaiderbajwa@gmail.com';
+var ADMIN_PASS  = 'faseelhaider123';
+var OWNER_PHONE = '923416142690';          // WhatsApp (country code, no + or 0)
+var OWNER_EMAIL = 'faseelhaiderbajwa@gmail.com';
+
+/* ============================================
+   SAFETY PRELOADER
+============================================ */
+setTimeout(function(){
+  var pre = document.getElementById('preloader');
+  if (pre) pre.classList.add('hidden');
+}, 2500);
+window.addEventListener('load', function(){
+  var pre = document.getElementById('preloader');
+  if (pre) setTimeout(function(){ pre.classList.add('hidden'); }, 500);
+});
+
+/* ============================================
+   PRODUCT DATA
+============================================ */
+var DEFAULT_PRODUCTS = [
+  {id:'p1', cat:'ghar', name:'Shampoo',              nameUr:'شیمپو',                   price:80,  emoji:'🧴'},
+  {id:'p2', cat:'ghar', name:'Aruna Amla Shampoo',   nameUr:'ارونا آملہ شیمپو',        price:500, emoji:'🧴'},
+  {id:'p3', cat:'ghar', name:'2 Eggs',               nameUr:'2 انڈے',                  price:50,  emoji:'🥚'},
+  {id:'p4', cat:'ghar', name:'Biryani Masala Small', nameUr:'بریانی مصالحہ چھوٹا',     price:30,  emoji:'🧂'},
+  {id:'p5', cat:'ghar', name:'Biryani Masala Large', nameUr:'بریانی مصالحہ بڑا',       price:150, emoji:'🧂'},
+  {id:'p6', cat:'ghar', name:'Chaat Masala Box',     nameUr:'چاٹ مصالحہ ڈبہ',          price:150, emoji:'🧂'},
+  {id:'p7', cat:'ghar', name:'Chaat Masala Small',   nameUr:'چاٹ مصالحہ چھوٹا',        price:40,  emoji:'🧂'},
+  {id:'p8', cat:'ghar', name:'National Masala',      nameUr:'نیشنل مصالحہ',            price:150, emoji:'🧂'},
+  {id:'p9', cat:'ghar', name:'LUX Soap',             nameUr:'لکس صابن',                price:160, emoji:'🧼'},
+  {id:'p10',cat:'ghar', name:'Neel',                 nameUr:'نیل',                     price:50,  emoji:'🔵'},
+  {id:'p11',cat:'ghar', name:'Bulb',                 nameUr:'بلب',                     price:150, emoji:'💡'},
+  {id:'r1', cat:'rashan', name:'Daal Chana',         nameUr:'دال چنا',                 price:280, emoji:'🥣'},
+  {id:'r2', cat:'rashan', name:'Kala Chana',         nameUr:'کالا چنا',                price:280, emoji:'🥣'},
+  {id:'r3', cat:'rashan', name:'Safed Chana',        nameUr:'سفید چنا',                price:320, emoji:'🥣'},
+  {id:'r4', cat:'rashan', name:'Daal Masoor',        nameUr:'دال مسور',                price:360, emoji:'🥣'},
+  {id:'r5', cat:'rashan', name:'Daal Mash Skinless', nameUr:'دال ماش چھلکے کے بغیر',   price:520, emoji:'🥣'},
+  {id:'r6', cat:'rashan', name:'Daal Mash',          nameUr:'دال ماش چھلکے والی',      price:480, emoji:'🥣'},
+  {id:'r7', cat:'rashan', name:'Ghee',               nameUr:'گھی',                     price:550, emoji:'🫕'},
+  {id:'r8', cat:'rashan', name:'Daliya',             nameUr:'دالیا',                   price:500, emoji:'🥣'},
+  {id:'r9', cat:'rashan', name:'Daal Mong',          nameUr:'دال مونگ',                price:480, emoji:'🥣'},
+  {id:'r10',cat:'rashan', name:'Sabut Masoor',       nameUr:'ثابت مسور',               price:320, emoji:'🥣'},
+  {id:'r11',cat:'rashan', name:'Sugar',              nameUr:'چینی',                    price:100, emoji:'🍬'},
+  {id:'r12',cat:'rashan', name:'Salt',               nameUr:'نمک',                     price:50,  emoji:'🧂'},
+  {id:'r13',cat:'rashan', name:'Bottle 1 Litre',     nameUr:'بوتل 1 لیٹر',             price:160, emoji:'🍶'},
+  {id:'r14',cat:'rashan', name:'Bottle 2.5 Litre',   nameUr:'بوتل 2.50 لیٹر',          price:220, emoji:'🍶'},
+  {id:'r15',cat:'rashan', name:'Soda Shampoo',       nameUr:'سودا شاپین',              price:30,  emoji:'🧴'},
+  {id:'r16',cat:'rashan', name:'Captain Cigarette',  nameUr:'کیپٹن سگریٹ',             price:260, emoji:'🚬'},
+  {id:'r17',cat:'rashan', name:'Sugar 2',            nameUr:'چینی',                    price:150, emoji:'🍬'},
+  {id:'r18',cat:'rashan', name:'Biscuit',            nameUr:'بسکٹ',                    price:50,  emoji:'🍪'},
+  {id:'r19',cat:'rashan', name:'Namko',              nameUr:'نمکو',                    price:50,  emoji:'🥨'},
+  {id:'r20',cat:'rashan', name:'Lays',               nameUr:'لیز',                     price:50,  emoji:'🍟'}
+];
+
+/* ============================================
+   STATE
+============================================ */
+var products = [];
+var cart = [];
+var orders = [];
+var activeCat = 'all';
+var isAdmin = false;
+var orderMode = 'cart';
+var singleProduct = null;
+var adminTab = 'orders';
+
+function loadData(){
+  try{
+    var p = localStorage.getItem('mrBajwaProducts');
+    products = p ? JSON.parse(p) : null;
+    if (!products || !products.length) products = DEFAULT_PRODUCTS.slice();
+  }catch(e){ products = DEFAULT_PRODUCTS.slice(); }
+  try{
+    var c = localStorage.getItem('mrBajwaCart');
+    cart = c ? JSON.parse(c) : [];
+    if (!Array.isArray(cart)) cart = [];
+  }catch(e){ cart = []; }
+  try{
+    var o = localStorage.getItem('mrBajwaOrders');
+    orders = o ? JSON.parse(o) : [];
+    if (!Array.isArray(orders)) orders = [];
+  }catch(e){ orders = []; }
+}
+function saveProducts(){ try{localStorage.setItem('mrBajwaProducts', JSON.stringify(products));}catch(e){} }
+function saveCart(){ try{localStorage.setItem('mrBajwaCart', JSON.stringify(cart));}catch(e){} }
+function saveOrders(){ try{localStorage.setItem('mrBajwaOrders', JSON.stringify(orders));}catch(e){} }
+
+/* ============================================
+   TOAST
+============================================ */
+function toast(msg, type){
+  type = type || 'success';
+  var wrap = document.getElementById('toastWrap');
+  if (!wrap) return;
+  var t = document.createElement('div');
+  t.className = 'tst' + (type==='error' ? ' error' : (type==='info' ? ' info' : ''));
+  var icon = type==='error' ? '❌' : (type==='info' ? 'ℹ️' : '✅');
+  t.innerHTML = '<span>'+icon+'</span><span>'+msg+'</span>';
+  wrap.appendChild(t);
+  setTimeout(function(){
+    t.style.animation = 'tout .35s ease forwards';
+    setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, 380);
+  }, 3200);
+}
+
+/* ============================================
+   ESCAPE
+============================================ */
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+/* ============================================
+   RENDER PRODUCTS
+============================================ */
+function getFiltered(){
+  if (activeCat === 'all') return products;
+  return products.filter(function(p){ return p.cat === activeCat; });
+}
+
+function renderProducts(){
+  var grid = document.getElementById('grid');
+  if (!grid) return;
+  var list = getFiltered();
+  if (list.length === 0){
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#999">' +
+      '<div style="font-size:3rem">📭</div>' +
+      '<div class="urdu" style="font-size:1.1rem">اس کیٹیگری میں کوئی پروڈکٹ نہیں</div></div>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < list.length; i++){
+    var p = list[i];
+    var tagClass = p.cat === 'ghar' ? '' : ' gold';
+    var tagText = p.cat === 'ghar' ? '🏠 گھر' : '🌾 راشن';
+    html += '<div class="card" onclick="openOrderForProduct(\''+p.id+'\')">' +
+      '<div class="img">' +
+        '<div class="fallback">' + (p.emoji||'🛒') + '</div>' +
+        '<span class="tag'+tagClass+'">'+tagText+'</span>' +
+      '</div>' +
+      '<div class="body">' +
+        '<div class="name-en">'+esc(p.name)+'</div>' +
+        '<div class="name-ur urdu">'+esc(p.nameUr||'')+'</div>' +
+        '<div class="prow">' +
+          '<div class="price"><span class="rs">Rs.</span>'+p.price+'</div>' +
+          '<button class="add" onclick="event.stopPropagation();addToCart(\''+p.id+'\')" title="Add" type="button"><i class="fas fa-plus"></i></button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+  grid.innerHTML = html;
+}
+
+/* ============================================
+   CART
+============================================ */
+function addToCart(id){
+  var p = null;
+  for (var i=0;i<products.length;i++) if (products[i].id === id) { p = products[i]; break; }
+  if (!p) return;
+  var ex = null;
+  for (var j=0;j<cart.length;j++) if (cart[j].id === id) { ex = cart[j]; break; }
+  if (ex) ex.qty += 1;
+  else cart.push({id:p.id, name:p.name, nameUr:p.nameUr, price:p.price, emoji:p.emoji, qty:1});
+  saveCart();
+  renderCart();
+  updateBadge();
+  toast(p.name + ' کارٹ میں شامل');
+}
+
+function removeFromCart(id){
+  cart = cart.filter(function(x){ return x.id !== id; });
+  saveCart(); renderCart(); updateBadge();
+}
+
+function changeQty(id, d){
+  for (var i=0;i<cart.length;i++){
+    if (cart[i].id === id){
+      cart[i].qty += d;
+      if (cart[i].qty <= 0){ cart.splice(i,1); }
+      break;
+    }
+  }
+  saveCart(); renderCart(); updateBadge();
+}
+
+function cartTotal(){ var s=0; for (var i=0;i<cart.length;i++) s += cart[i].price*cart[i].qty; return s; }
+function getTotalQty(){ var s=0; for (var i=0;i<cart.length;i++) s += cart[i].qty; return s; }
+
+function updateBadge(){
+  var el = document.getElementById('cartCount');
+  if (el) el.textContent = getTotalQty();
+  var el2 = document.getElementById('floatCartCount');
+  if (el2) el2.textContent = getTotalQty();
+}
+
+function renderCart(){
+  var list = document.getElementById('cartList');
+  var foot = document.getElementById('cartFooter');
+  if (!list) return;
+
+  if (cart.length === 0){
+    list.innerHTML = '<div class="cart-empty">' +
+      '<div class="ic">🛒</div>' +
+      '<p>آپ کا کارٹ خالی ہے</p>' +
+      '<p class="ur">کوئی چیز شامل کریں</p></div>';
+    if (foot) foot.style.display = 'block';
+    var ci0 = document.getElementById('cartItems'); if (ci0) ci0.textContent = '0';
+    var ct0 = document.getElementById('cartTotal'); if (ct0) ct0.textContent = '0';
+    var btn = document.getElementById('placeOrderBtn');
+    if (btn){ btn.disabled = true; }
+    return;
+  }
+
+  if (foot) foot.style.display = 'block';
+  var btnE = document.getElementById('placeOrderBtn');
+  if (btnE){ btnE.disabled = false; }
+
+  var html = '';
+  for (var i=0;i<cart.length;i++){
+    var it = cart[i];
+    html += '<div class="c-item">' +
+      '<div class="th">'+(it.emoji||'🛒')+'</div>' +
+      '<div class="inf">' +
+        '<div class="nm">'+esc(it.name)+'</div>' +
+        '<div class="pr">Rs. '+it.price+' × '+it.qty+' = <strong>Rs. '+(it.price*it.qty)+'</strong></div>' +
+      '</div>' +
+      '<div class="qty">' +
+        '<button onclick="changeQty(\''+it.id+'\',-1)" type="button">−</button>' +
+        '<span class="n">'+it.qty+'</span>' +
+        '<button onclick="changeQty(\''+it.id+'\',1)" type="button">+</button>' +
+      '</div>' +
+      '<button class="del" onclick="removeFromCart(\''+it.id+'\')" type="button" title="Remove"><i class="fas fa-trash-alt"></i></button>' +
+    '</div>';
+  }
+  list.innerHTML = html;
+  var ci = document.getElementById('cartItems');
+  var ct = document.getElementById('cartTotal');
+  if (ci) ci.textContent = getTotalQty();
+  if (ct) ct.textContent = cartTotal();
+}
+
+/* ============================================
+   SIDEBAR
+============================================ */
+function openCart(){
+  document.getElementById('cartPanel').classList.add('open');
+  document.getElementById('ovl').classList.add('show');
+  renderCart();
+}
+function closeCart(){
+  document.getElementById('cartPanel').classList.remove('open');
+  document.getElementById('ovl').classList.remove('show');
+}
+function closeAll(){
+  closeCart();
+  closeAdminPanel();
+}
+
+/* ============================================
+   ORDER MODAL
+============================================ */
+function openOrderForProduct(id){
+  var p = null;
+  for (var i=0;i<products.length;i++) if (products[i].id === id) { p = products[i]; break; }
+  if (!p) return;
+  singleProduct = p;
+  orderMode = 'single';
+  renderOrderPreview();
+  document.getElementById('orderModal').classList.add('on');
+  setTimeout(function(){
+    var f = document.getElementById('cName');
+    if (f) f.focus();
+  }, 400);
+}
+
+function openOrderModal(){
+  if (cart.length === 0){ toast('کارٹ خالی ہے', 'error'); return; }
+  orderMode = 'cart';
+  singleProduct = null;
+  renderOrderPreview();
+  closeCart();
+  document.getElementById('orderModal').classList.add('on');
+  setTimeout(function(){
+    var f = document.getElementById('cName');
+    if (f) f.focus();
+  }, 400);
+}
+
+function closeOrderModal(){
+  document.getElementById('orderModal').classList.remove('on');
+}
+
+function renderOrderPreview(){
+  var box = document.getElementById('orderPreview');
+  if (!box) return;
+  var html = '';
+  if (orderMode === 'single' && singleProduct){
+    html += '<div class="r"><span>'+singleProduct.emoji+' '+esc(singleProduct.name)+'</span><span>Rs. '+singleProduct.price+'</span></div>';
+    html += '<div class="r"><span class="urdu" style="font-size:.85rem">'+esc(singleProduct.nameUr||'')+'</span><span>× 1</span></div>';
+    html += '<div class="r total"><span>Total</span><span>Rs. '+singleProduct.price+'</span></div>';
+  } else {
+    for (var i=0;i<cart.length;i++){
+      var it = cart[i];
+      html += '<div class="r"><span>'+it.emoji+' '+esc(it.name)+' × '+it.qty+'</span><span>Rs. '+(it.price*it.qty)+'</span></div>';
+    }
+    html += '<div class="r total"><span>کل رقم</span><span>Rs. '+cartTotal()+'</span></div>';
+  }
+  box.innerHTML = html;
+}
+
+/* ============================================
+   ORDER FORM VALIDATION
+============================================ */
+function validateForm(){
+  var name = (document.getElementById('cName').value || '').trim();
+  var phone = (document.getElementById('cPhone').value || '').trim();
+  var city = (document.getElementById('cCity').value || '').trim();
+  var dist = (document.getElementById('cDist').value || '').trim();
+  var teh = (document.getElementById('cTeh').value || '').trim();
+  var addr = (document.getElementById('cAddr').value || '').trim();
+
+  if (!name){ toast('نام درج کریں', 'error'); document.getElementById('cName').focus(); return null; }
+  if (!phone || phone.length < 10){ toast('درست موبائل نمبر درج کریں', 'error'); document.getElementById('cPhone').focus(); return null; }
+  if (!city){ toast('شہر درج کریں', 'error'); document.getElementById('cCity').focus(); return null; }
+  if (!dist){ toast('ضلع درج کریں', 'error'); document.getElementById('cDist').focus(); return null; }
+  if (!teh){ toast('تحصیل درج کریں', 'error'); document.getElementById('cTeh').focus(); return null; }
+
+  return {name:name, phone:phone, city:city, dist:dist, teh:teh, addr:addr};
+}
+
+/* ============================================
+   BUILD ORDER OBJECT
+============================================ */
+function buildOrderObject(customer){
+  var items, total;
+  if (orderMode === 'single' && singleProduct){
+    items = [{
+      name: singleProduct.name, nameUr: singleProduct.nameUr,
+      qty: 1, price: singleProduct.price, emoji: singleProduct.emoji
+    }];
+    total = singleProduct.price;
+  } else {
+    items = [];
+    for (var i=0;i<cart.length;i++){
+      var it = cart[i];
+      items.push({
+        name: it.name, nameUr: it.nameUr,
+        qty: it.qty, price: it.price, emoji: it.emoji
+      });
+    }
+    total = cartTotal();
+  }
+  return {
+    id: 'MB' + Date.now().toString(36).toUpperCase(),
+    date: new Date().toLocaleString('en-PK', {timeZone:'Asia/Karachi'}),
+    items: items,
+    total: total,
+    customer: customer,
+    status: 'new'
+  };
+}
+
+/* ============================================
+   BUILD ORDER MESSAGE TEXT
+============================================ */
+function buildOrderText(order){
+  var lines = [];
+  for (var i=0;i<order.items.length;i++){
+    var it = order.items[i];
+    lines.push((it.emoji||'') + ' ' + it.name + ' (' + (it.nameUr||'') + ') x' + it.qty + ' = Rs.' + (it.price*it.qty));
+  }
+  return 'Assalam-o-Alaikum Mr. Bajwa,\n\n' +
+    '*NEW ORDER* 🛒\n' +
+    '━━━━━━━━━━━━━━━━━━\n' +
+    'Order ID: ' + order.id + '\n' +
+    'Date: ' + order.date + '\n\n' +
+    '*ITEMS:*\n' + lines.join('\n') + '\n\n' +
+    '*Total: Rs. ' + order.total + '*\n\n' +
+    '━━━━━━━━━━━━━━━━━━\n' +
+    '*CUSTOMER DETAILS:*\n' +
+    'Name: ' + order.customer.name + '\n' +
+    'Phone: ' + order.customer.phone + '\n' +
+    'City: ' + order.customer.city + '\n' +
+    'District: ' + order.customer.dist + '\n' +
+    'Tehsil: ' + order.customer.teh + '\n' +
+    'Address: ' + (order.customer.addr || '-') + '\n' +
+    '━━━━━━━━━━━━━━━━━━\n' +
+    'Sent from Mr. Bajwa website';
+}
+
+/* ============================================
+   AFTER ORDER: clear cart, close modal
+============================================ */
+function afterOrderPlaced(){
+  if (orderMode === 'cart'){
+    cart = [];
+    saveCart();
+    renderCart();
+    updateBadge();
+  }
+  closeOrderModal();
+}
+
+/* ============================================
+   PLACE ORDER VIA WHATSAPP (from modal)
+============================================ */
+function placeOrderViaWhatsApp(){
+  var c = validateForm();
+  if (!c) return;
+
+  var order = buildOrderObject(c);
+  orders.unshift(order);
+  saveOrders();
+
+  var text = buildOrderText(order);
+  var url = 'https://api.whatsapp.com/send?phone=' + OWNER_PHONE + '&text=' + encodeURIComponent(text);
+
+  afterOrderPlaced();
+  toast('واٹس ایپ کھل رہا ہے...', 'success');
+
+  // Use location.href which never gets blocked by popup blockers
+  setTimeout(function(){
+    try {
+      window.location.href = url;
+    } catch(e){
+      window.open(url, '_blank');
+    }
+  }, 150);
+}
+
+/* ============================================
+   PLACE ORDER VIA EMAIL (from modal)
+============================================ */
+function placeOrderViaEmail(){
+  var c = validateForm();
+  if (!c) return;
+
+  var order = buildOrderObject(c);
+  orders.unshift(order);
+  saveOrders();
+
+  var text = buildOrderText(order);
+  var subject = 'New Order from Mr. Bajwa - ' + order.id;
+  var url = 'mailto:' + OWNER_EMAIL +
+            '?subject=' + encodeURIComponent(subject) +
+            '&body=' + encodeURIComponent(text);
+
+  afterOrderPlaced();
+  toast('ای میل کلائنٹ کھل رہا ہے...', 'success');
+
+  setTimeout(function(){
+    try {
+      window.location.href = url;
+    } catch(e){
+      window.open(url, '_self');
+    }
+  }, 150);
+}
+
+/* ============================================
+   CART: send directly via WhatsApp (no form needed)
+============================================ */
+function sendCartViaWhatsApp(){
+  if (cart.length === 0){ toast('کارٹ خالی ہے', 'error'); return; }
+
+  var lines = [];
+  for (var i=0;i<cart.length;i++){
+    var it = cart[i];
+    lines.push((it.emoji||'') + ' ' + it.name + ' (' + (it.nameUr||'') + ') x' + it.qty + ' = Rs.' + (it.price*it.qty));
+  }
+  var text = 'Assalam-o-Alaikum Mr. Bajwa,\n\n' +
+    '*NEW ORDER* 🛒\n' +
+    '━━━━━━━━━━━━━━━━━━\n' +
+    '*ITEMS:*\n' + lines.join('\n') + '\n\n' +
+    '*Total: Rs. ' + cartTotal() + '*\n' +
+    '━━━━━━━━━━━━━━━━━━\n' +
+    'Sent from Mr. Bajwa website';
+
+  var url = 'https://api.whatsapp.com/send?phone=' + OWNER_PHONE + '&text=' + encodeURIComponent(text);
+  toast('واٹس ایپ کھل رہا ہے...', 'success');
+  setTimeout(function(){
+    try { window.location.href = url; } catch(e){ window.open(url, '_blank'); }
+  }, 150);
+}
+
+/* ============================================
+   CART: send directly via Email
+============================================ */
+function sendCartViaEmail(){
+  if (cart.length === 0){ toast('کارٹ خالی ہے', 'error'); return; }
+
+  var lines = [];
+  for (var i=0;i<cart.length;i++){
+    var it = cart[i];
+    lines.push('• ' + (it.emoji||'') + ' ' + it.name + ' (' + (it.nameUr||'') + ') x' + it.qty + ' = Rs.' + (it.price*it.qty));
+  }
+  var body = 'Assalam-o-Alaikum Mr. Bajwa,\n\n' +
+    'NEW ORDER\n' +
+    '------------------------------------\n' +
+    'ITEMS:\n' + lines.join('\n') + '\n\n' +
+    'Total: Rs. ' + cartTotal() + '\n' +
+    '------------------------------------\n' +
+    'Sent from Mr. Bajwa website';
+
+  var subject = 'New Order from Mr. Bajwa (Cart)';
+  var url = 'mailto:' + OWNER_EMAIL +
+            '?subject=' + encodeURIComponent(subject) +
+            '&body=' + encodeURIComponent(body);
+  toast('ای میل کلائنٹ کھل رہا ہے...', 'success');
+  setTimeout(function(){
+    try { window.location.href = url; } catch(e){ window.open(url, '_self'); }
+  }, 150);
+}
+
+/* ============================================
+   DIRECT WHATSAPP / EMAIL (from navbar, footer, contact)
+============================================ */
+function openWhatsAppDirect(){
+  var text = 'Assalam-o-Alaikum Mr. Bajwa,\nمجھے آپ کی دکان سے سودا خریدنا ہے۔';
+  var url = 'https://api.whatsapp.com/send?phone=' + OWNER_PHONE + '&text=' + encodeURIComponent(text);
+  try { window.location.href = url; } catch(e){ window.open(url, '_blank'); }
+}
+
+function openEmailDirect(){
+  var subject = 'Inquiry - Mr. Bajwa Grocery Store';
+  var body = 'Assalam-o-Alaikum Mr. Bajwa,\n\nمجھے آپ کی دکان کے بارے میں معلومات چاہیے۔\n\nشکریہ';
+  var url = 'mailto:' + OWNER_EMAIL +
+            '?subject=' + encodeURIComponent(subject) +
+            '&body=' + encodeURIComponent(body);
+  try { window.location.href = url; } catch(e){ window.open(url, '_self'); }
+}
+
+/* ============================================
+   ADMIN LOGIN
+============================================ */
+function openAdminPanelClick(){
+  if (isAdmin) openAdminPanel();
+  else document.getElementById('adminLoginModal').classList.add('on');
+}
+function closeAdminLogin(){
+  document.getElementById('adminLoginModal').classList.remove('on');
+}
+function handleAdminLogin(e){
+  e.preventDefault();
+  var em = document.getElementById('aEmail').value.trim();
+  var ps = document.getElementById('aPass').value;
+  if (em === ADMIN_EMAIL && ps === ADMIN_PASS){
+    isAdmin = true;
+    closeAdminLogin();
+    openAdminPanel();
+    toast('خوش آمدید Admin');
+    document.getElementById('aEmail').value = '';
+    document.getElementById('aPass').value = '';
+  } else {
+    toast('غلط ای میل یا پاس ورڈ', 'error');
+  }
+}
+
+/* ============================================
+   ADMIN PANEL
+============================================ */
+function openAdminPanel(){
+  if (!isAdmin){ openAdminPanelClick(); return; }
+  document.getElementById('adminPanel').classList.add('open');
+  document.getElementById('ovl').classList.add('show');
+  renderAdmin();
+}
+function closeAdminPanel(){
+  document.getElementById('adminPanel').classList.remove('open');
+  document.getElementById('ovl').classList.remove('show');
+}
+
+function renderAdmin(){
+  var body = document.getElementById('adminBody');
+  if (!body) return;
+  if (adminTab === 'orders') body.innerHTML = renderOrders();
+  else if (adminTab === 'products') body.innerHTML = renderProductsAdmin();
+  else body.innerHTML = renderAddForm();
+}
+
+function renderOrders(){
+  var newC = 0, doneC = 0, rev = 0;
+  for (var i=0;i<orders.length;i++){
+    if (orders[i].status === 'completed') doneC++; else newC++;
+    rev += orders[i].total;
+  }
+  var html = '<div class="stats">' +
+    '<div class="stat"><div class="n">'+orders.length+'</div><div class="l">Total Orders</div></div>' +
+    '<div class="stat red"><div class="n">'+newC+'</div><div class="l">New</div></div>' +
+    '<div class="stat gold"><div class="n">'+doneC+'</div><div class="l">Completed</div></div>' +
+    '<div class="stat"><div class="n">'+rev+'</div><div class="l">Rs. Revenue</div></div>' +
+    '</div>';
+
+  if (orders.length === 0){
+    html += '<div class="blk" style="text-align:center;color:#999;padding:40px">' +
+      '<div style="font-size:2.5rem">📭</div><p>ابھی کوئی آرڈر نہیں آیا</p></div>';
+    return html;
+  }
+
+  html += '<div class="blk"><h4><i class="fas fa-list"></i> Recent Orders</h4><div class="ord-list">';
+  for (var j=0;j<orders.length;j++){
+    var o = orders[j];
+    var isDone = o.status === 'completed';
+    var items = '';
+    for (var k=0;k<o.items.length;k++){
+      var it = o.items[k];
+      items += '• ' + (it.emoji||'') + ' ' + esc(it.name) + ' × ' + it.qty + ' = Rs. ' + (it.price*it.qty) + '<br>';
+    }
+    var cleanPhone = (o.customer.phone || '').replace(/[^0-9]/g,'');
+    var waPhone = cleanPhone.replace(/^0/, '92');
+    html += '<div class="oc' + (isDone ? ' completed' : '') + '">' +
+      '<div class="oh">' +
+        '<span class="oid">🆔 ' + o.id + '</span>' +
+        '<span class="ost ' + (isDone ? 'done' : 'new') + '">' + (isDone ? '✅ Done' : '🆕 New') + '</span>' +
+      '</div>' +
+      '<div class="ob">' +
+        '<strong>👤 ' + esc(o.customer.name) + '</strong> | 📞 ' + esc(o.customer.phone) + '<br>' +
+        '🏙️ ' + esc(o.customer.city) + ' | 🏛️ ' + esc(o.customer.dist) + ' | 📍 ' + esc(o.customer.teh) + '<br>' +
+        '🕐 ' + o.date +
+      '</div>' +
+      '<div class="oi">' + items + '</div>' +
+      '<div class="ob"><strong>Total: Rs. ' + o.total + '</strong></div>' +
+      '<div class="oa">' +
+        (!isDone ? '<button class="btn btn-green btn-xs" onclick="markDone(\''+o.id+'\')" type="button">✅ Complete</button>' : '') +
+        '<button class="btn btn-red btn-xs" onclick="delOrder(\''+o.id+'\')" type="button">🗑️ Delete</button>' +
+        '<a href="tel:'+esc(o.customer.phone)+'" class="btn btn-green btn-xs"><i class="fas fa-phone"></i> Call</a>' +
+        '<a href="https://api.whatsapp.com/send?phone='+waPhone+'" target="_blank" class="btn btn-wa btn-xs"><i class="fab fa-whatsapp"></i> WA</a>' +
+      '</div>' +
+    '</div>';
+  }
+  html += '</div></div>';
+  return html;
+}
+
+function renderProductsAdmin(){
+  var html = '<div class="blk"><h4><i class="fas fa-boxes"></i> Products (' + products.length + ')</h4><div class="pml">';
+  for (var i=0;i<products.length;i++){
+    var p = products[i];
+    html += '<div class="pmi">' +
+      '<div class="em">' + (p.emoji||'🛒') + '</div>' +
+      '<div class="inf">' +
+        '<div class="t">' + esc(p.name) + '</div>' +
+        '<div class="s urdu">' + esc(p.nameUr||'') + ' · ' + (p.cat==='ghar'?'گھر':'راشن') + '</div>' +
+      '</div>' +
+      '<div class="pr">Rs.' + p.price + '</div>' +
+      '<div class="act">' +
+        '<button class="be" onclick="editProd(\''+p.id+'\')" title="Edit" type="button"><i class="fas fa-pen"></i></button>' +
+        '<button class="bd" onclick="delProd(\''+p.id+'\')" title="Delete" type="button"><i class="fas fa-trash"></i></button>' +
+      '</div>' +
+    '</div>';
+  }
+  html += '</div></div>';
+  return html;
+}
+
+function renderAddForm(){
+  return '<div class="blk">' +
+    '<h4><i class="fas fa-plus-circle"></i> Add New Product</h4>' +
+    '<form onsubmit="addProd(event)">' +
+      '<div class="afg">' +
+        '<div class="fg full"><label>Product Name (English) *</label><input type="text" id="npName" required></div>' +
+        '<div class="fg full"><label>اردو نام / Urdu Name</label><input type="text" id="npNameUr" style="direction:rtl"></div>' +
+        '<div class="fg"><label>Price (Rs.) *</label><input type="number" id="npPrice" required min="0"></div>' +
+        '<div class="fg"><label>Category *</label><select id="npCat" required>' +
+          '<option value="ghar">🏠 گھر کی چیزیں</option>' +
+          '<option value="rashan">🌾 راشن</option>' +
+        '</select></div>' +
+        '<div class="fg"><label>Emoji</label><input type="text" id="npEmoji" maxlength="4" placeholder="🍚"></div>' +
+      '</div>' +
+      '<button type="submit" class="btn btn-green btn-block"><i class="fas fa-save"></i> Save Product</button>' +
+    '</form></div>';
+}
+
+function addProd(e){
+  e.preventDefault();
+  var name = document.getElementById('npName').value.trim();
+  var nameUr = document.getElementById('npNameUr').value.trim();
+  var price = parseInt(document.getElementById('npPrice').value) || 0;
+  var cat = document.getElementById('npCat').value;
+  var emoji = document.getElementById('npEmoji').value.trim() || '🛒';
+  if (!name){ toast('نام درج کریں', 'error'); return; }
+  products.push({
+    id: 'c' + Date.now(),
+    cat: cat, name: name, nameUr: nameUr, price: price, emoji: emoji
+  });
+  saveProducts();
+  renderProducts();
+  toast('نیا پروڈکٹ شامل ہو گیا');
+  var tabs = document.querySelectorAll('.ap-tab');
+  for (var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
+  var pt = document.querySelector('.ap-tab[data-tab="products"]');
+  if (pt) pt.classList.add('active');
+  adminTab = 'products';
+  renderAdmin();
+}
+
+function delProd(id){
+  if (!confirm('کیا آپ واقعی یہ پروڈکٹ ڈیلیٹ کرنا چاہتے ہیں؟')) return;
+  products = products.filter(function(p){ return p.id !== id; });
+  saveProducts();
+  renderProducts();
+  renderAdmin();
+  toast('پروڈکٹ ڈیلیٹ ہو گیا', 'info');
+}
+
+function editProd(id){
+  var p = null;
+  for (var i=0;i<products.length;i++) if (products[i].id === id){ p = products[i]; break; }
+  if (!p) return;
+  var np = prompt('نیا ریٹ درج کریں (Rs.) - موجودہ: ' + p.price, p.price);
+  if (np === null) return;
+  var v = parseInt(np);
+  if (isNaN(v) || v < 0){ toast('غلط ریٹ', 'error'); return; }
+  p.price = v;
+  saveProducts();
+  renderProducts();
+  renderAdmin();
+  toast('ریٹ اپ ڈیٹ ہو گیا');
+}
+
+function markDone(id){
+  for (var i=0;i<orders.length;i++){
+    if (orders[i].id === id){ orders[i].status = 'completed'; break; }
+  }
+  saveOrders();
+  renderAdmin();
+  toast('آرڈر مکمل');
+}
+
+function delOrder(id){
+  if (!confirm('کیا آپ یہ آرڈر ڈیلیٹ کرنا چاہتے ہیں؟')) return;
+  orders = orders.filter(function(o){ return o.id !== id; });
+  saveOrders();
+  renderAdmin();
+  toast('آرڈر ڈیلیٹ', 'info');
+}
+
+/* ============================================
+   EVENT BINDING
+============================================ */
+document.addEventListener('DOMContentLoaded', function(){
+  var catBar = document.getElementById('catBar');
+  if (catBar){
+    catBar.addEventListener('click', function(e){
+      var btn = e.target.closest('.cat-btn');
+      if (!btn) return;
+      var allBtns = document.querySelectorAll('.cat-btn');
+      for (var i=0;i<allBtns.length;i++) allBtns[i].classList.remove('active');
+      btn.classList.add('active');
+      activeCat = btn.getAttribute('data-cat');
+      renderProducts();
+    });
+  }
+
+  var tabs = document.querySelectorAll('.ap-tab');
+  for (var i=0;i<tabs.length;i++){
+    tabs[i].addEventListener('click', function(){
+      var allT = document.querySelectorAll('.ap-tab');
+      for (var k=0;k<allT.length;k++) allT[k].classList.remove('active');
+      this.classList.add('active');
+      adminTab = this.getAttribute('data-tab');
+      renderAdmin();
+    });
+  }
+
+  var navA = document.querySelectorAll('.nav-links a');
+  for (var n=0;n<navA.length;n++){
+    navA[n].addEventListener('click', function(){
+      for (var m=0;m<navA.length;m++) navA[m].classList.remove('active');
+      this.classList.add('active');
+      var nl = document.getElementById('navLinks');
+      if (nl) nl.classList.remove('open');
+    });
+  }
+});
+
+document.addEventListener('keydown', function(e){
+  if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')){
+    e.preventDefault();
+    openAdminPanelClick();
+  }
+  if (e.key === 'Escape'){
+    closeOrderModal();
+    closeAdminLogin();
+    closeCart();
+    closeAdminPanel();
+  }
+});
+
+/* ============================================
+   INIT
+============================================ */
+loadData();
+renderProducts();
+renderCart();
+updateBadge();
+renderOrderPreview();
+
+window.addEventListener('error', function(ev){
+  console.error('JS Error:', ev.message, 'at line', ev.lineno);
+});
+</script>
+</body>
+</html>
